@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FVIS Museum</title>
+
+    <style>
+        .wrapper {
+            max-width: 991px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+        }
+        .modal-header{
+            display: none;
+
+        }
+
+        div.polaroid {
+  width: 450px;
+  padding: 10px 10px 20px 10px;
+  border: 1px solid #BFBFBF;
+  background-color: white;
+  box-shadow: 10px 10px 5px #aaaaaa;
+}
+
+div.rotate_right {
+  float: left;
+  transform: rotate(-8deg);
+
+}
+div.rotate_left {
+  float: left;
+  transform: rotate(8deg);
+
+}
+
+
+
+
+div.rotate_left {
+  animation: wiggle 5s linear infinite;
+}
+div.rotate_right {
+  animation: wiggle 5s linear infinite;
+}
+
+
+/* Keyframes */
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(6deg);
+  }
+}
+
+
+    </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+<body>
+
+  
+
+
+        <!--start Model Login and Register -->
+
+        <div class="modal fade" id="exampleModalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="User-name" class="col-form-label">User Name:</label>
+                    <input type="text" class="form-control" id="User-name">
+                  </div>
+                  <div class="form-group">
+                    <label for="Password-text" class="col-form-label">Password:</label>
+                    <input type="text" class="form-control" id="Password-name">
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Login</button>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+  
+  
+  
+  
+  
+        <div class="modal fade" id="exampleModalRegister" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="UserName-name" class="col-form-label">UserName:</label>
+                    <input required="true" type="text" class="form-control" id="UserName-name">
+                  </div>
+                  <div class="form-group">
+                      <label for="Email-name" class="col-form-label">Email:</label>
+                      <input required="true" type="email" class="form-control" id="Email-name">
+                    </div>
+                    <div class="form-group">
+                      <label for="Password-name" class="col-form-label">Password:</label>
+                      <input required="true" type="password" class="form-control" id="Password-name">
+                    </div>
+  
+                    <div class="form-group">
+                      <label for="Password-name" class="col-form-label">Retype Password:</label>
+                      <input required="true" type="password" class="form-control" id="Password-name">
+                    </div>
+  
+                    <div class="form-check">
+                      <label class="form-check-label" for="radio2">
+                        <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Male
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label class="form-check-label" for="radio2">
+                        <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Female
+                      </label>
+                    </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Register</button>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+  
+          <!--start Model Login and Register -->
+
+
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #e3f2fd;">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">FVIS Museum</a>
+          <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button> -->
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                  </li>
+
+                  <!-- <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Sections
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/school library/PdfPage.html">PDF Section</a></li>
+                        <li><a class="dropdown-item" href="/school library/AudioPage.html">Audio Section</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/school library/VideoSection.html">Video Section<</a></li>
+                      </ul>
+                    </li> -->
+
+
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sections
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                          <a class="dropdown-item" href="KingsSectionpage.html">Kings Section</a>
+                        <a class="dropdown-item" href="ArtefactsandRuinsSectionpage.html">Artefacts and Ruins Section</a>
+                        <a class="dropdown-item" href="TraditionsSectionpage.html">Traditions</a>
+                        <a class="dropdown-item" href="NaturalEnvironmentpage.html">Natural Environment</a>
+                      </div>
+                    </li>
+
+
+
+                  <li class="nav-item">
+                      <a class="nav-link" href="about.html">About</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="contactus.html">Contact Us</a>
+                  </li>
+              </ul>
+
+
+              <ul class=" navbar-nav ml-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalRegister" data-whatever="@mdo">Register</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalLogin" data-whatever="@mdo">Login</a>
+                  </li>
+              </li>
+              </ul>
+
+
+          </div>
+      </div>
+  </nav>
+
+    <section class="container-fluid wrapper" >
+        
+        <div style="margin-bottom: 30px;">
+            <H2 style="color: white;text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;">
+              Artefacts and Ruins Section
+            </H2>
+
+            <section class="container-fluid wrapper" >
+                <p>
+                  Explore captivating exhibits featuring artifacts, historical narratives, and multimedia presentations meticulously curated to showcase the rich tapestry of Saudi Arabia's cultural heritage. 
+                </p>
+            </section>
+
+            </div>
+            
+
+
+
+
+
+<!-- 
+            </div>
+                <embed src="4.pdf" type="application/pdf" width="30%" height="300px" />
+                <embed src="5.pdf" type="application/pdf" width="30%" height="300px" />
+                <embed src="6.pdf" type="application/pdf" width="30%" height="300px" />
+            </div> -->
+
+   <div class="row">
+    <div class="rows">
+
+          <div class="d-sm-block" style="margin-top: 50px;">
+  
+            <div class="polaroid rotate_left">
+              <img src="12.jpg" alt="Monterosso al Mare" width="430" height="250">
+              <p class="caption">Similar to Petra in Jordan, Hegra features well-preserved rock-cut tombs and other structures, showcasing the unique Nabataean architectural style.The site provides valuable insights into the ancient Arabian civilizations and their sophisticated building techniques.</p>
+              <div class="d-none d-md-block">
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Show Image</button>
+            </div>
+            </div>
+  
+            <div class="polaroid rotate_right">
+              <img src="3.jpg" alt="Pulpit rock" width="430" height="250">
+              <p class="caption">Hegra, also known as Al-Hijr or Madain Saleh, is a UNESCO World Heritage site in Saudi Arabia. It's an archaeological site located in the Al Ula area and was once part of the Nabataean Kingdom. Hegra is a significant cultural and historical treasure in Saudi Arabia.</p>
+              <div class="d-none d-md-block">
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal12">Show Image</button>
+            </div>
+            </div>
+  
+          </div>
+
+    </div>
+
+
+    <div class="rows">
+
+          <div class="d-sm-block" style="margin-top: 50px;">
+  
+            <div class="polaroid rotate_left">
+              <img src="7.jpg" alt="Monterosso al Mare" width="430" height="250">
+              <p class="caption">Al Ula, located in northwestern Saudi Arabia, is renowned for its UNESCO World Heritage Site, Madain Saleh. This archaeological site features well-preserved Nabataean tombs and rock-cut facades, similar to those in Petra, Jordan. The intricate carvings and ancient inscriptions provide a glimpse into the Nabataean civilization.</p>
+              <div class="d-none d-md-block">
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal2">Show Image</button>
+            </div>
+            </div>
+  
+            <div class="polaroid rotate_right">
+              <img src="5.jpg" alt="Pulpit rock" width="430" height="250">
+              <p class="caption">Al Ula also boasts a stunning landscape with towering sandstone mountains, ancient mud-brick forts, and oases. The city has a history dating back thousands of years, with evidence of various civilizations that once thrived in the region. In recent years, Saudi Arabia has opened Al Ula to tourism, allowing visitors to experience its unique blend of history, culture, and natural beauty.</p>
+              <div class="d-none d-md-block">
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">Show Image</button>
+            </div>
+            </div>
+
+  
+          </div>
+      </section>
+    </div>
+
+
+  </div>
+
+  </section>
+
+
+
+  <!-- Modal  2 -->
+  <div class="modal fade bd-example-modal-lg" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">      </h4>
+        </div>
+        <div class="modal-body">
+            <div style="width: 800; text-align: center;">
+              <img src="12.jpg" alt="School Picture 1" width="700" height="500"> 
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal  2 -->
+  <div class="modal fade bd-example-modal-lg" id="myModal1" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">         </h4>
+        </div>
+        <div class="modal-body">
+            <div style="width: 800; text-align: center;">
+              <img src="5.jpg" alt="School Picture 1" width="700" height="500"> 
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- Modal  2 -->
+    <div class="modal fade bd-example-modal-lg" id="myModal2" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">     </h4>
+          </div>
+          <div class="modal-body">
+              <div style="width: 800; text-align: center;">
+                <img src="7.jpg" alt="School Picture 1" width="700" height="500"> 
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <!-- Modal  2 -->
+  <div class="modal fade bd-example-modal-lg" id="myModal12" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">        </h4>
+        </div>
+        <div class="modal-body">
+            <div style="width: 800; text-align: center;">
+              <img src="3.jpg" alt="School Picture 1" width="700" height="500"> 
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+
+
+    
+    <footer style="background-color: #e3f2fd; color: black;padding: 10px;text-align: 
+    center;margin-top:100px;">
+      <p>&copy; 2023 Our School. All rights reserved.</p>
+  </footer>
+
+
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

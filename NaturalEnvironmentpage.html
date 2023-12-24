@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FVIS Museum</title>
+
+
+    <style>
+      .wrapper {
+          max-width: 991px;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 50px;
+      }
+      .modal-header{
+          display: none;
+
+      }
+
+      div.polaroid {
+width: 450px;
+padding: 10px 10px 20px 10px;
+border: 1px solid #BFBFBF;
+background-color: white;
+box-shadow: 10px 10px 5px #aaaaaa;
+}
+
+div.rotate_right {
+float: left;
+transform: rotate(-8deg);
+
+}
+div.rotate_left {
+float: left;
+transform: rotate(8deg);
+
+}
+
+
+
+
+div.rotate_left {
+animation: wiggle 5s linear infinite;
+}
+div.rotate_right {
+animation: wiggle 5s linear infinite;
+}
+
+
+/* Keyframes */
+@keyframes wiggle {
+0%, 7% {
+  transform: rotateZ(0);
+}
+15% {
+  transform: rotateZ(-15deg);
+}
+20% {
+  transform: rotateZ(10deg);
+}
+25% {
+  transform: rotateZ(-10deg);
+}
+30% {
+  transform: rotateZ(6deg);
+}
+35% {
+  transform: rotateZ(-4deg);
+}
+40%, 100% {
+  transform: rotateZ(6deg);
+}
+}
+  </style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+
+</head>
+<body>
+
+
+
+  
+        <!--start Model Login and Register -->
+
+        <div class="modal fade" id="exampleModalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="User-name" class="col-form-label">User Name:</label>
+                    <input type="text" class="form-control" id="User-name">
+                  </div>
+                  <div class="form-group">
+                    <label for="Password-text" class="col-form-label">Password:</label>
+                    <input type="text" class="form-control" id="Password-name">
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Login</button>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+  
+  
+  
+  
+  
+        <div class="modal fade" id="exampleModalRegister" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="UserName-name" class="col-form-label">UserName:</label>
+                    <input required="true" type="text" class="form-control" id="UserName-name">
+                  </div>
+                  <div class="form-group">
+                      <label for="Email-name" class="col-form-label">Email:</label>
+                      <input required="true" type="email" class="form-control" id="Email-name">
+                    </div>
+                    <div class="form-group">
+                      <label for="Password-name" class="col-form-label">Password:</label>
+                      <input required="true" type="password" class="form-control" id="Password-name">
+                    </div>
+  
+                    <div class="form-group">
+                      <label for="Password-name" class="col-form-label">Retype Password:</label>
+                      <input required="true" type="password" class="form-control" id="Password-name">
+                    </div>
+  
+                    <div class="form-check">
+                      <label class="form-check-label" for="radio2">
+                        <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Male
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label class="form-check-label" for="radio2">
+                        <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Female
+                      </label>
+                    </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Register</button>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+  
+          <!--start Model Login and Register -->
+
+
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #e3f2fd;">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">FVIS Museum</a>
+          <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button> -->
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                  </li>
+
+                  <!-- <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Sections
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/school library/PdfPage.html">PDF Section</a></li>
+                        <li><a class="dropdown-item" href="/school library/AudioPage.html">Audio Section</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/school library/VideoSection.html">Video Section<</a></li>
+                      </ul>
+                    </li> -->
+
+
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sections
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                          <a class="dropdown-item" href="KingsSectionpage.html">Kings Section</a>
+                        <a class="dropdown-item" href="ArtefactsandRuinsSectionpage.html">Artefacts and Ruins Section</a>
+                        <a class="dropdown-item" href="TraditionsSectionpage.html">Traditions</a>
+                        <a class="dropdown-item" href="NaturalEnvironmentpage.html">Natural Environment</a>
+                      </div>
+                    </li>
+
+
+
+                  <li class="nav-item">
+                      <a class="nav-link" href="about.html">About</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="contactus.html">Contact Us</a>
+                  </li>
+              </ul>
+
+
+              <ul class=" navbar-nav ml-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalRegister" data-whatever="@mdo">Register</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalLogin" data-whatever="@mdo">Login</a>
+                  </li>
+              </li>
+              </ul>
+
+
+          </div>
+      </div>
+  </nav>
+
+
+    <section class="container-fluid wrapper" >
+        
+        <div style="margin-bottom: 30px;">
+            <H2 style="color: white;text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;">
+                Natural Environment Section
+            </H2>
+
+            <section class="container-fluid wrapper" >
+                <p>
+                    The wildlife of Saudi Arabia is substantial and varied. Saudi Arabia is a very large country forming the biggest part of the Arabian Peninsula. It has several geographic regions, each with a diversity of plants and animals adapted to their own particular habitats.
+                </p>
+            </section>
+
+        <div class="row">
+
+
+
+
+
+          <div class="rows">
+
+            <div class="d-sm-block" style="margin-top: 50px;">
+          
+              <div class="polaroid rotate_left">
+                <img src="28.jpg" alt="Monterosso al Mare" width="430" height="300">
+                <p class="caption">The Oasis is part of the AlUla Old Town Villageز Ancient civilisations have cultivated this spring-fed oasis for millennia, and today it remains a lush and fertile plain with sustainable farming at its core. </p>
+          
+                <div class="d-none d-md-block">
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Show Image</button>
+              </div>
+              </div>
+          
+              <div class="polaroid rotate_right">
+                <img src="29.jpg" alt="Pulpit rock" width="430" height="400">
+                <p class="caption">The dromedary, also known as the dromedary camel, Arabian camel, or one-humped camel, is a large even-toed ungulate, of the genus Camelus, with one hump on its back. It is the tallest of the three species of camel; adult males stand 2.2–3.6 m at the shoulder, while females are 1.7–1.9 m tall.</p>
+                <div class="d-none d-md-block">
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">Show Image</button>
+              </div>
+              </div>
+
+            </div>
+          
+          </div>
+
+
+
+          <div class="rows">
+
+            <div class="d-sm-block" style="margin-top: 50px;">
+          
+              <div class="polaroid rotate_left">
+                <img src="30.jpg" alt="Monterosso al Mare" width="430" height="300">
+                <p class="caption">One notable species of eagles in Saudi Arabia is the Arabian eagle, also known as the Short-toed Snake Eagle (Circaetus gallicus). This bird of prey is found in arid regions, including Saudi Arabia, and is known for its distinctive appearance and feeding habits, primarily preying on snakes.</p>
+          
+                <div class="d-none d-md-block">
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal3">Show Image</button>
+              </div>
+              </div>
+          
+              <div class="polaroid rotate_right">
+                <img src="31.jpg" alt="Pulpit rock" width="430" height="400">
+                <p class="caption">Saudi Arabia is home to various snake species, including venomous ones like vipers and cobras. Common species include the Arabian cobra and saw-scaled viper. While encounters with snakes are possible, many are not aggressive unless provoked. It's advised to be cautious in desert and rocky areas where snakes may reside.</p>
+                <div class="d-none d-md-block">
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal4">Show Image</button>
+              </div>
+              </div>
+
+            </div>
+          
+          </div>
+
+
+          <div class="rows">
+
+            <div class="d-sm-block" style="margin-top: 50px;">
+          
+              <div class="polaroid rotate_left">
+                <img src="32.jpg" alt="Monterosso al Mare" width="430" height="300">
+                <p class="caption">The Arabian leopard is the smallest subspecies of leopard, and is highly endangered. It can be found in the mountains along the west coast, and has been seen in the Jabal Shadah Reserve.</p>
+          
+                <div class="d-none d-md-block">
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal5">Show Image</button>
+              </div>
+              </div>
+          
+              <div class="polaroid rotate_right">
+                <img src="33.jpg" alt="Pulpit rock" width="430" height="400">
+                <p class="caption">Saudi Arabia is home to various species of monkeys, particularly in the southwestern regions around the Asir Province and the mountainous areas. The most notable species is the Arabian baboon (Papio hamadryas arabicus), which is a subspecies of the hamadryas baboon. These baboons are adapted to arid environments and are known to inhabit rocky areas.
+                  .</p>
+                <div class="d-none d-md-block">
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal6">Show Image</button>
+              </div>
+              </div>
+
+            </div>
+          
+          </div>
+
+
+
+
+
+  <!-- Modal  1 -->
+  <div class="modal fade bd-example-modal-lg" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">ِAl Ula Oasis</h4>
+        </div>
+        <div class="modal-body">
+
+            <div style="width: 500; text-align: center;">
+              <img src="28.jpg" alt="School Picture 1" width="700" height="500">
+
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+
+  <!-- Modal  2 -->
+  <div class="modal fade bd-example-modal-lg" id="myModal1" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">The Dromedary Camel</h4>
+        </div>
+        <div class="modal-body">
+            <div style="width: 800; text-align: center;">
+              <img src="29.jpg" alt="School Picture 1" width="700" height="500"> 
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal  3 -->
+  <div class="modal fade bd-example-modal-lg" id="myModal3" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">the Arabian Eagle</h4>
+        </div>
+        <div class="modal-body">
+            <div style="width: 800; text-align: center;">
+              <img src="30.jpg" alt="School Picture 2" width="700" height="500">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Modal  4 -->
+  <div class="modal fade bd-example-modal-lg" id="myModal4" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">the Arabian Cobra</h4>
+        </div>
+        <div class="modal-body">
+            <div style="width: 800; text-align: center;">
+              <img src="31.jpg" alt="School Picture 3" width="700" height="500">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Modal  5 -->
+  <div class="modal fade bd-example-modal-lg" id="myModal5" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">The Arabian Leopard</h4>
+        </div>
+        <div class="modal-body">
+            <div style="width: 800; text-align: center;">
+              <img src="32.jpg" alt="School Picture 5" width="700" height="500">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+                        
+
+
+                          <!-- Modal  5 -->
+  <div class="modal fade bd-example-modal-lg" id="myModal6" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">the Arabian Baboon</h4>
+        </div>
+        <div class="modal-body">
+            <div style="width: 800; text-align: center;">
+              <img src="33.jpg" alt="School Picture 1" width="700" height="500">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    </section>
+
+
+    
+    <footer style="background-color: #e3f2fd; color: black;padding: 10px;text-align: 
+    center;margin-top:100px;">
+      <p>&copy; 2023 Our School. All rights reserved.</p>
+  </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+
+</body>
+</html>
